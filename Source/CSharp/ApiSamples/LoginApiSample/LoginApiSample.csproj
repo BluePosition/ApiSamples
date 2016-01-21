@@ -7,8 +7,8 @@
     <ProjectGuid>{F6486CB4-5BDF-477F-8BEB-E3CF72297F42}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoginApi</RootNamespace>
-    <AssemblyName>LoginApi</AssemblyName>
+    <RootNamespace>BluePosition.Samples.LoginApi</RootNamespace>
+    <AssemblyName>LoginApiSample</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
