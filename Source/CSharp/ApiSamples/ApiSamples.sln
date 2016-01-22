@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApiSample", "LoginApiSample\LoginApiSample.csproj", "{F6486CB4-5BDF-477F-8BEB-E3CF72297F42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsSampleWpf", "ContactsSampleWpf\ContactsSampleWpf.csproj", "{0A490AFA-E9EC-493A-A8D1-D110892464F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F6486CB4-5BDF-477F-8BEB-E3CF72297F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6486CB4-5BDF-477F-8BEB-E3CF72297F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6486CB4-5BDF-477F-8BEB-E3CF72297F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A490AFA-E9EC-493A-A8D1-D110892464F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A490AFA-E9EC-493A-A8D1-D110892464F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A490AFA-E9EC-493A-A8D1-D110892464F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A490AFA-E9EC-493A-A8D1-D110892464F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
