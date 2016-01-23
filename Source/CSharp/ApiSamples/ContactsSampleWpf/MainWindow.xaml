@@ -5,13 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsSampleWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="GetContactsBtn" Content="Get Contacts" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="120" Click="GetContactsBtn_Click"/>
-        <PasswordBox x:Name="PasswordTxb" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <Label x:Name="StatusLbl" Content="" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="120"/>
-        <StackPanel x:Name="ContactsStackPanel" HorizontalAlignment="Left" Height="299" Margin="135,10,0,0" VerticalAlignment="Top" Width="372"/>
+        Title="MainWindow" Height="363.667" Width="540.943">
+    <Window.Resources>
 
+        <!-- Default DataTemplate -->
+        <DataTemplate x:Key="DefaultDataTemplate">
+            <TextBlock>
+
+            </TextBlock>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox x:Name="PasswordTxb" Margin="265,10,0,0" VerticalAlignment="Top" Height="23" KeyDown="PasswordTxb_KeyDown" HorizontalAlignment="Left" Width="250"/>
+        <Label x:Name="StatusLbl" Content="" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="250" Height="23"/>
+        <ListView Margin="10,38,0,0" Name="lvDataBinding" Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="505">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Id: " />
+                        <TextBlock Text="{Binding Id}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="User name: " />
+                        <TextBlock Text="{Binding ScaleUserId}" FontWeight="Bold" />
+                        <!--<TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                        <TextBlock Text=")" />-->
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox x:Name="OcpApimSubscriptionKeyTxb" HorizontalAlignment="Left" Margin="265,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="250"/>
     </Grid>
 </Window>

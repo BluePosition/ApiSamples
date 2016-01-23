@@ -23,17 +23,21 @@ namespace ContactsSampleWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string OcpApimSubscriptionKey = "INSERTSUBSCRIPTIONKEY";
+        //private const string OcpApimSubscriptionKey = "INSERTSUBSCRIPTIONKEY";
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private async void GetContactsBtn_Click(object sender, RoutedEventArgs e)
+        private async void PasswordTxb_KeyDown(object sender, KeyEventArgs e)
         {
-            var token = await Login(UsernameTxb.Text, PasswordTxb.Password);
-            var contacts = await GetContacts(token);
+            if (e.Key == Key.Enter)
+            {
+                var token = await Login(UsernameTxb.Text, PasswordTxb.Password);
+                var contacts = await GetContacts(token);
+                lvDataBinding.ItemsSource = contacts;
+            }
         }
 
         private async Task<string> Login(string username, string password)
@@ -42,7 +46,7 @@ namespace ContactsSampleWpf
 #if DEBUG
             return string.Empty;
 #else
-            return await new LoginTask(OcpApimSubscriptionKey).Execute(username, password);
+            return await new LoginTask(OcpApimSubscriptionKeyTxb.Text).Execute(username, password);
 #endif
         }
 
@@ -69,12 +73,21 @@ namespace ContactsSampleWpf
             };
 #else
             const string url = "https://api.cloud.mobileservices.dk/contact/api/contact";
-            var client = HttpClientHelpers.CreateWithToken(OcpApimSubscriptionKey, token);
+            var client = HttpClientHelpers.CreateWithToken(OcpApimSubscriptionKeyTxb.Text, token);
             var response = await client.GetAsync(url);
-            var stringResponse = await response.Content.ReadAsStringAsync();      
-            contacts = JsonConvert.DeserializeObject<Contact[]>(stringResponse);
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                contacts = JsonConvert.DeserializeObject<Contact[]>(stringResponse);
+            }
+            else
+            {
+                StatusLbl.Content = "HTTP " + ((int)response.StatusCode) + " " + response.StatusCode;
+                contacts = new Contact[0];
+            }
 #endif
-            StatusLbl.Content = $"Done! Got {contacts.Length} contact(s).";
+            if (response.IsSuccessStatusCode)
+                StatusLbl.Content = $"Done! Got {contacts.Length} contact(s).";
 
             return contacts;
         }
