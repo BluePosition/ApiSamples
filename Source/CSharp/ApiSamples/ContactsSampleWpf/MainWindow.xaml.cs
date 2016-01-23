@@ -86,7 +86,7 @@ namespace ContactsSampleWpf
                 contacts = new Contact[0];
             }
 #endif
-            if (response.IsSuccessStatusCode)
+            if (!StatusLbl.Content.ToString().StartsWith("HTTP"))
                 StatusLbl.Content = $"Done! Got {contacts.Length} contact(s).";
 
             return contacts;
