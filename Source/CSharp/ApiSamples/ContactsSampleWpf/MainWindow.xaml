@@ -1,11 +1,10 @@
-﻿<Window x:Class="ContactsSampleWpf.MainWindow"
+﻿<Window x:Class="BluePosition.Samples.ContactsSample.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ContactsSampleWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="363.667" Width="540.943">
+        Title="MainWindow" Height="397.679" Width="669.89">
     <Window.Resources>
 
         <!-- Default DataTemplate -->
@@ -17,10 +16,10 @@
 
     </Window.Resources>
     <Grid>
-        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        <PasswordBox x:Name="PasswordTxb" Margin="265,10,0,0" VerticalAlignment="Top" Height="23" KeyDown="PasswordTxb_KeyDown" HorizontalAlignment="Left" Width="250"/>
-        <Label x:Name="StatusLbl" Content="" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="250" Height="23"/>
-        <ListView Margin="10,38,0,0" Name="lvDataBinding" Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="505">
+        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox x:Name="PasswordTxb" Margin="265,36,0,0" VerticalAlignment="Top" Height="23" KeyDown="PasswordTxb_KeyDown" HorizontalAlignment="Left" Width="250"/>
+        <Label x:Name="StatusLbl" Content="" HorizontalAlignment="Left" Margin="10,337,0,0" VerticalAlignment="Top" Width="505" Height="23"/>
+        <ListView Margin="10,118,0,0" Name="lvDataBinding" Height="214" VerticalAlignment="Top" HorizontalAlignment="Left" Width="505">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -36,6 +35,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox x:Name="OcpApimSubscriptionKeyTxb" HorizontalAlignment="Left" Margin="265,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="250"/>
+        <TextBox x:Name="OcpApimSubscriptionKeyTxb" HorizontalAlignment="Left" Margin="10,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="505"/>
+        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="OCP Api Key" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="GetContactsButton" Content="Get Contacts" HorizontalAlignment="Left" Margin="520,118,0,0" VerticalAlignment="Top" Width="122" Click="GetContactsButton_Click"/>
     </Grid>
 </Window>

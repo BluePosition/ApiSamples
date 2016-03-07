@@ -1,7 +1,6 @@
-﻿<Application x:Class="ContactsSampleWpf.App"
+﻿<Application x:Class="BluePosition.Samples.ContactsSample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ContactsSampleWpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

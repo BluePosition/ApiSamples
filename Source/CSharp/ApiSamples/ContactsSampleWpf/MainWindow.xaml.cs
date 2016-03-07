@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BluePosition.Samples.ContactsSample;
 using BluePosition.Samples.LoginApi;
 using Newtonsoft.Json;
 
-namespace ContactsSampleWpf
+namespace BluePosition.Samples.ContactsSample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -34,9 +22,7 @@ namespace ContactsSampleWpf
         {
             if (e.Key == Key.Enter)
             {
-                var token = await Login(UsernameTxb.Text, PasswordTxb.Password);
-                var contacts = await GetContacts(token);
-                lvDataBinding.ItemsSource = contacts;
+                await GetContacts();
             }
         }
 
@@ -48,6 +34,13 @@ namespace ContactsSampleWpf
 #else
             return await new LoginTask(OcpApimSubscriptionKeyTxb.Text).Execute(username, password);
 #endif
+        }
+
+        private async Task GetContacts()
+        {
+            var token = await Login(UsernameTxb.Text, PasswordTxb.Password);
+            var contacts = await GetContacts(token);
+            lvDataBinding.ItemsSource = contacts;
         }
 
         private async Task<Contact[]> GetContacts(string token)
@@ -82,7 +75,7 @@ namespace ContactsSampleWpf
             }
             else
             {
-                StatusLbl.Content = "HTTP " + ((int)response.StatusCode) + " " + response.StatusCode;
+                StatusLbl.Content = "HTTP " + ((int) response.StatusCode) + " " + response.StatusCode;
                 contacts = new Contact[0];
             }
 #endif
@@ -90,6 +83,11 @@ namespace ContactsSampleWpf
                 StatusLbl.Content = $"Done! Got {contacts.Length} contact(s).";
 
             return contacts;
+        }
+
+        private async void GetContactsButton_Click(object sender, RoutedEventArgs e)
+        {
+            await GetContacts();
         }
     }
 }
