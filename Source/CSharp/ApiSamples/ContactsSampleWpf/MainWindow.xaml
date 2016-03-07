@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="397.679" Width="669.89">
+        Title="MainWindow" Height="450.379" Width="785.382">
     <Window.Resources>
 
         <!-- Default DataTemplate -->
@@ -16,29 +16,31 @@
 
     </Window.Resources>
     <Grid>
-        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        <PasswordBox x:Name="PasswordTxb" Margin="265,36,0,0" VerticalAlignment="Top" Height="23" KeyDown="PasswordTxb_KeyDown" HorizontalAlignment="Left" Width="250"/>
-        <Label x:Name="StatusLbl" Content="" HorizontalAlignment="Left" Margin="10,337,0,0" VerticalAlignment="Top" Width="505" Height="23"/>
-        <ListView Margin="10,118,0,0" Name="lvDataBinding" Height="214" VerticalAlignment="Top" HorizontalAlignment="Left" Width="505">
+        <TextBox x:Name="UsernameTxb" HorizontalAlignment="Left" Height="23" Margin="11,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox x:Name="PasswordTxb" Margin="266,73,264.5,0" VerticalAlignment="Top" Height="23" KeyDown="PasswordTxb_KeyDown"/>
+        <Label x:Name="StatusLbl" Content="TDC BlueCloud API Sample" Margin="11,10,9.5,0" VerticalAlignment="Top" Height="32" FontSize="14.667"/>
+        <ListView Margin="11,155,264.5,10" Name="lvDataBinding" SelectionChanged="lvDataBinding_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <TextBlock Text="Id: " />
-                        <TextBlock Text="{Binding Id}" FontWeight="Bold" />
-                        <TextBlock Text=", " />
-                        <TextBlock Text="User name: " />
-                        <TextBlock Text="{Binding ScaleUserId}" FontWeight="Bold" />
-                        <!--<TextBlock Text=" (" />
-                        <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                        <TextBlock Text=")" />-->
+                        <TextBlock Text="{Binding ScaleUserId}"/>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox x:Name="OcpApimSubscriptionKeyTxb" HorizontalAlignment="Left" Margin="10,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="505"/>
-        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="265,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="OCP Api Key" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="GetContactsButton" Content="Get Contacts" HorizontalAlignment="Left" Margin="520,118,0,0" VerticalAlignment="Top" Width="122" Click="GetContactsButton_Click"/>
+        <TextBox x:Name="OcpApimSubscriptionKeyTxb" Margin="11,127,264.5,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="11,47,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="266,47,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="OCP Api Key" HorizontalAlignment="Left" Margin="11,101,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="GetContactsButton" Content="Get Contacts" Margin="521,73,9.5,0" VerticalAlignment="Top" Click="GetContactsButton_Click" Height="23"/>
+        <Grid Margin="521,155,9.5,10" Background="#FF94D0FD">
+            <Label x:Name="SelectedContactIdLbl" Content="" Margin="10,62,10,0" VerticalAlignment="Top"/>
+            <Label x:Name="SelectedContactUsernameLbl" Content="" Margin="10,114,10,0" VerticalAlignment="Top"/>
+            <Label x:Name="SelectedContactPresenceLbl" Content="" Margin="10,166,10,0" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Content="Contact information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="label4" Content="Id" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="label4_Copy" Content="Username" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="label4_Copy1" Content="Presence" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        </Grid>
     </Grid>
 </Window>
