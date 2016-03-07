@@ -1,6 +1,8 @@
 # ApiSamples
 Sample projects demonstrating how to integrate with TDC BlueCloud APIs are found in this repository.
 
+**See the [Wiki](https://github.com/BluePosition/ApiSamples/wiki) for a tutorial on how to use the samples.**
+
 ## BluePosition Developer Portal
 Link: https://developer.cloud.mobileservices.dk/
 
